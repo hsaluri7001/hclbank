@@ -1,0 +1,23 @@
+package com.bank.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bank.entity.Account;
+import com.bank.repository.AccountRepository;
+
+@Service
+public class FundTransferService {
+	
+	@Autowired
+	private AccountRepository accountRepository;
+	
+	public void fundTransfer(Long senderAccountNumber,Long recieverAccountNumber) {
+		Account sender=accountRepository.getOne(senderAccountNumber);
+		Account reciever=accountRepository.getOne(recieverAccountNumber);
+		if(sender.getStatus().equals("ACTIVE")&&reciever.getStatus().equals("ACTIVE")) {
+			
+		}
+		
+	}
+}

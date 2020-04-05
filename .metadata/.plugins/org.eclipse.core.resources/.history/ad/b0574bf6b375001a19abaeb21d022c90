@@ -1,0 +1,12 @@
+server.port=8089
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.username=hclbank
+spring.datasource.password=nitish598
+spring.jpa.properties.hibernate.default_schema=HCLBANK
+spring.datasource.tomcat.initialSize=20
+spring.datasource.tomcat.max-active=25
+
+spring.jpa.show-sql=true
+debug=true
+

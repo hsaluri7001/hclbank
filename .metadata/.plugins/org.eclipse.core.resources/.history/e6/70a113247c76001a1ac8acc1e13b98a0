@@ -1,0 +1,79 @@
+package com.bank.entity;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+/**
+ * @author saluri
+ *
+ */
+@Entity
+@Table(name = "ACCOUNT")
+public class AccountEntity {
+	@Id
+	@SequenceGenerator(name = "account_seq", sequenceName = "ACCOUNT_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
+	private Long accountNumber;
+	private Integer branchId;
+	private String userName;
+	private Long balance;
+	private String status;
+	private String accountType;
+	@ManyToOne(fetch=FetchType.LAZY,cascade=CascadeType.ALL)
+	@JoinColumn(name = "CUSTOMER_ID")
+	@JsonIgnore
+	private CustomerEntity customer;
+	public Long getAccountNumber() {
+		return accountNumber;
+	}
+	public void setAccountNumber(Long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+	public Integer getBranchId() {
+		return branchId;
+	}
+	public void setBranchId(Integer branchId) {
+		this.branchId = branchId;
+	}
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public Long getBalance() {
+		return balance;
+	}
+	public void setBalance(Long balance) {
+		this.balance = balance;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getAccountType() {
+		return accountType;
+	}
+	public void setAccountType(String accountType) {
+		this.accountType = accountType;
+	}
+	public CustomerEntity getCustomer() {
+		return customer;
+	}
+	public void setCustomer(CustomerEntity customer) {
+		this.customer = customer;
+	}
+
+}

@@ -1,0 +1,15 @@
+package com.bank;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages="com.bank,com.bank.*,com.bank.exceptionhandler")
+public class HclBankApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(HclBankApplication.class, args);
+	}
+
+}

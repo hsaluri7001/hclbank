@@ -1,0 +1,76 @@
+package com.bank.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Entity
+@Table
+public class AccountEntity {
+	@Id
+	@Column(name="ACCOUNT_ID")
+	@SequenceGenerator(name="account_seq",sequenceName="ACCOUNT_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="account_seq")
+	private Long accountNumber;
+	private Integer branchId;
+	private Long balance;
+	private String status;
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="CUSTOMER_ID")
+	private CustomerEntity customer;
+	
+
+
+
+	public Integer getBranchId() {
+		return branchId;
+	}
+
+	public void setBranchId(Integer branchId) {
+		this.branchId = branchId;
+	}
+
+	public Long getBalance() {
+		return balance;
+	}
+
+	public void setBalance(Long balance) {
+		this.balance = balance;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public CustomerEntity getCustomer() {
+		return customer;
+	}
+
+	public void setCustomer(CustomerEntity customer) {
+		this.customer = customer;
+	}
+
+
+
+	public Long getAccountNumber() {
+		return accountNumber;
+	}
+
+
+
+	public void setAccountNumber(Long accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+}

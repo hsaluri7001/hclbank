@@ -1,0 +1,27 @@
+package com.bank.entity;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Table
+@Entity
+public class CustomerEntity {
+
+	@Id
+	@Column(name="CUSTOMER_ID")
+	private Integer customerId;
+	private String userName;
+	private String gender;
+	private Integer age;
+	private String pan;
+	private String aadhar;
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="customer")
+	private Set<AccountEntity> accounts;
+}

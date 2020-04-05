@@ -1,0 +1,18 @@
+package com.bank.entity;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+
+@Entity
+public class AccountTransactions {
+	private Integer transactionId;
+	private Long senderAccountNumber;
+	private Long receiverAccountNummber;
+	private String transactionStatus;
+	private String transactionType;
+	private String transactionDesc;
+	private String transactionAmount;
+	private Date transactionDate;
+	
+}

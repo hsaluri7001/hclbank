@@ -1,0 +1,9 @@
+package com.bank.beans;
+
+public class AccountStatus {
+	
+	private Long accountNumber;
+	private String status;
+	private String 
+
+}

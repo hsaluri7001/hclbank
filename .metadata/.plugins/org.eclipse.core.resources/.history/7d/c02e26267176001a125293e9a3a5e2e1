@@ -1,0 +1,56 @@
+package com.bank.service;
+
+import java.util.Set;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.bank.beans.AccountInfo;
+import com.bank.beans.CustomerInfo;
+import com.bank.entity.AccountEntity;
+import com.bank.entity.CustomerEntity;
+import com.bank.exceptionhandler.AccountNotFoundException;
+import com.bank.repository.AccountRepository;
+import com.bank.repository.CustomerRepository;
+
+/**
+ * @author saluri
+ *
+ */
+@Service
+public class AccountService {
+
+	@Autowired
+	private AccountRepository accountRepository;
+
+	@Autowired
+	private CustomerRepository customerRepository;
+
+	public CustomerEntity getAccountDetails(Long accountNumber)throws AccountNotFoundException {
+		AccountEntity accountEntity = null;
+		CustomerEntity customerEntity = null;
+		try {
+			accountEntity = accountRepository.getOne(accountNumber);
+			if(accountEntity==null) {
+				throw new AccountNotFoundException("Account Doesn't exist!");
+			}
+			 customerEntity=accountEntity.getCustomer();
+		}
+		catch(Exception e) {
+			throw new AccountNotFoundException("Account Doesn't exist");
+		}
+		return customerEntity;
+	}
+
+	public AccountInfo createAccount(CustomerInfo customerInfo) {
+		AccountInfo accountInfo = null;
+		try {
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return accountInfo;
+	}
+
+}

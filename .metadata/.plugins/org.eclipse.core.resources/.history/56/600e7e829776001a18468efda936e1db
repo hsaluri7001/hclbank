@@ -1,0 +1,14 @@
+package com.bank.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class FundTransferService {
+	
+	@Autowired
+	private AccountService accountService;
+	public void transferAmount(Long senderAccountNumber,Long recieverAccountNumber) {
+		accountService.getAccountDetails(senderAccountNumber);
+	}
+}

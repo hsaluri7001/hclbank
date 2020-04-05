@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.bank.beans.GetTransactions&apos; to &apos;TransactionBean&apos;&#x0D;&#x0A;- Original project: &apos;HCL_BANK&apos;&#x0D;&#x0A;- Original element: &apos;com.bank.beans.GetTransactions&apos;&#x0D;&#x0A;- Renamed element: &apos;com.bank.beans.TransactionBean&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;GetTransactions&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java&lt;com.bank.beans{GetTransactions.java[GetTransactions" matchStrategy="1" name="TransactionBean" qualified="false" references="true" similarDeclarations="false" stamp="1586077983590" textual="false" version="1.0"/>
+</session>

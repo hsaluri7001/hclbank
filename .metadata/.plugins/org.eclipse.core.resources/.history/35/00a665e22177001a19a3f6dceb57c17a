@@ -1,0 +1,31 @@
+package com.bank.beans;
+
+/**
+ * @author saluri
+ *
+ */
+public class TransactionBean {
+
+	private String senderAccountNumber;
+	private String receiverNumber;
+	private String month;
+	public String getSenderAccountNumber() {
+		return senderAccountNumber;
+	}
+	public void setSenderAccountNumber(String senderAccountNumber) {
+		this.senderAccountNumber = senderAccountNumber;
+	}
+	public String getReceiverNumber() {
+		return receiverNumber;
+	}
+	public void setReceiverNumber(String receiverNumber) {
+		this.receiverNumber = receiverNumber;
+	}
+	public String getMonth() {
+		return month;
+	}
+	public void setMonth(String month) {
+		this.month = month;
+	}
+	
+}

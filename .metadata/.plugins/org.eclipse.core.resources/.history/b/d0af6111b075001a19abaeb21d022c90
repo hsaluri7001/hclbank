@@ -1,0 +1,87 @@
+package com.bank.entity;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+@Table
+@Entity
+public class CustomerEntity {
+
+	@Id
+	@Column(name="CUSTOMER_ID")
+	@SequenceGenerator(name="customer_seq",sequenceName="CUSTOMER_SEQ",allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="customer_seq")
+	private Integer customerId;
+	private String lastName;
+	private String firstName; 	
+	private String gender;
+	private Integer age;
+	private String pan;
+	private String aadhar;
+	@OneToMany(fetch=FetchType.LAZY,cascade=CascadeType.ALL,mappedBy="customer")
+	private Set<AccountEntity> accounts;
+	
+	public Integer getCustomerId() {
+		return customerId;
+	}
+	public void setCustomerId(Integer customerId) {
+		this.customerId = customerId;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Integer getAge() {
+		return age;
+	}
+	public void setAge(Integer age) {
+		this.age = age;
+	}
+	public String getPan() {
+		return pan;
+	}
+	public void setPan(String pan) {
+		this.pan = pan;
+	}
+	public String getAadhar() {
+		return aadhar;
+	}
+	public void setAadhar(String aadhar) {
+		this.aadhar = aadhar;
+	}
+	public Set<AccountEntity> getAccounts() {
+		return accounts;
+	}
+	public void setAccounts(Set<AccountEntity> accounts) {
+		this.accounts = accounts;
+	}
+	@Override
+	public String toString() {
+		return "CustomerEntity [customerId=" + customerId + ", userName=" + userName + ", gender=" + gender + ", age="
+				+ age + ", pan=" + pan + ", aadhar=" + aadhar + ", accounts=" + accounts + "]";
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+}

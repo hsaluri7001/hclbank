@@ -1,0 +1,17 @@
+package com.bank.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.bank.entity.Account;
+import com.bank.entity.AccountTransactions;
+
+/**
+ * @author saluri
+ *
+ */
+public interface AccountRepository extends JpaRepository<Account, Long> {
+
+	@Query("select TRANSACTION_ID ,SENDER_ACCOUNT_NUMBER,RECEIVER_ACCOUNT_NUMMBER,TRANSACTION_STATUS,TRANSACTION_TYPE,TRANSACTION_DESC ,TRANSACTION_AMOUNT,TRANSACTION_DATE  from account_transactions WHEREto_char(TRANSACTION_DATE,'MM-YYYY')=? AND SENDER_ACCOUNT_NUMBER=?")
+	public AccountTransactions getAccountTransactions();
+}

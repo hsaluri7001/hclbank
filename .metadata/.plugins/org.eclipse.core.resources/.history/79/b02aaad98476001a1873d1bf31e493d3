@@ -1,0 +1,13 @@
+package com.bank.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.bank.entity.AccountEntity;
+
+/**
+ * @author saluri
+ *
+ */
+public interface AccountRepository extends JpaRepository<AccountEntity,Long>{
+
+}

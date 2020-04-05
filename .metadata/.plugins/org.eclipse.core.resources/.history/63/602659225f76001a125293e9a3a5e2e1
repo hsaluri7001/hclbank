@@ -1,0 +1,25 @@
+package com.bank.exceptionhandler;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
+
+@ControllerAdvice
+public class CustomExceptionHandler extends ResponseEntityExceptionHandler 
+{	
+ /*   @ExceptionHandler(AccountNotFoundException.class)
+    public ResponseEntity<Object> handleAccountNotFound(AccountNotFoundException ex, WebRequest request) {
+        List<String> details = new ArrayList<>();
+        details.add(ex.getLocalizedMessage());
+        ErrorResponse error = new ErrorResponse("Record Not Found", details);
+        return new ResponseEntity<Object>(error, HttpStatus.NOT_FOUND);
+    }
+ */
+	
+	@ExceptionHandler(AccountNotFoundException.class)
+	public ResponseEntity<Object> handleAccountNotFound(AccountNotFoundException ex) {
+		return new ResponseEntity<Object>(ex.getLocalizedMessage(),HttpStatus.NOT_FOUND);
+	}
+}

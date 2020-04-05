@@ -1,0 +1,12 @@
+package com.hcl.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CustomerService {
+
+	
+	public Long createAccountForCustomer(CustomerEntity entity) {
+		
+	}
+}
