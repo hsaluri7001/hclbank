@@ -1,6 +1,5 @@
 package com.bank.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -28,8 +27,9 @@ public class Account {
 	private Double balance;
 	private String status;
 	private String accountType;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER,cascadeType.All)
 	@JoinColumn(name = "CUSTOMER_ID")
+	@JsonIgnore
 	private Customer customer;
 
 	public Long getAccountNumber() {

@@ -27,10 +27,5 @@ public class TransactionBean {
 	public void setMonthAndYear(String monthAndYear) {
 		this.monthAndYear = monthAndYear;
 	}
-	@Override
-	public String toString() {
-		return "TransactionBean [senderAccountNumber=" + senderAccountNumber + ", receiverNumber=" + receiverNumber
-				+ ", monthAndYear=" + monthAndYear + "]";
-	}
 	
 }

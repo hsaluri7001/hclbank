@@ -51,9 +51,8 @@ public class AccountController {
 		Integer transactionId=fundTransferService.transferAmount(accountTrasaction);
 		return new ResponseEntity<Integer>(transactionId,HttpStatus.OK);
 	}
-	@PostMapping("/getTransactions")
+	@GetMapping("/getTransactions")
 	public ResponseEntity<List<AccountTransactions>> getTransactions(@RequestBody TransactionBean transactionBean){
-		System.out.println(transactionBean);
 		List<AccountTransactions> accountTransactions= accountService.getAccountTransactions(transactionBean);
 		return new ResponseEntity<List<AccountTransactions>>(accountTransactions,HttpStatus.OK);
 	}

@@ -1,6 +1,5 @@
 package com.bank.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,16 +19,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Account {
 	@Id
-	@SequenceGenerator(name = "ACCOUNT_SEQUENCE", sequenceName = "ACCOUNT_SEQ", allocationSize = 1)
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_SEQUENCE")
+	@SequenceGenerator(name = "ACCOUNT_SEQ", sequenceName = "ACCOUNT_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_SEQ")
 	private Long accountNumber;
 	private Integer branchId;
 	private String userName;
 	private Double balance;
 	private String status;
 	private String accountType;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "CUSTOMER_ID")
+	@JsonIgnore
+	@NotNull
 	private Customer customer;
 
 	public Long getAccountNumber() {

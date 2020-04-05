@@ -30,6 +30,7 @@ public class Account {
 	private String accountType;
 	@ManyToOne
 	@JoinColumn(name = "CUSTOMER_ID")
+	@JsonIgnore
 	private Customer customer;
 
 	public Long getAccountNumber() {

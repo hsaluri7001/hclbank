@@ -73,7 +73,7 @@ public class AccountService {
 	public List<AccountTransactions> getAccountTransactions(TransactionBean transactionBean){
 		String senderAccountNumber=transactionBean.getSenderAccountNumber()+"_db";
 		System.out.println(senderAccountNumber);
-		System.out.println(transactionBean.getMonthAndYear());
+		System.out.println(transactionBean);
 		List<AccountTransactions> depositTransactions=null;
 		try {
 		depositTransactions=transactionRepository.getDepositTransactions(transactionBean.getMonthAndYear(),senderAccountNumber);
