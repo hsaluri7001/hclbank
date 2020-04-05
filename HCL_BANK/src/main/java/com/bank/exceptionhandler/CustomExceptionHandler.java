@@ -16,15 +16,14 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @ControllerAdvice
 public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 
-	@ExceptionHandler(AccountNotFoundException.class)
+	@ExceptionHandler(CommonCustomException.class)
     public ResponseEntity<ErrorResponse> customHandleNotFound(Exception ex, WebRequest request) {
 
         ErrorResponse errors = new ErrorResponse();
         errors.setTimestamp(LocalDateTime.now());
         errors.setError(ex.getMessage());
         errors.setStatus(HttpStatus.NOT_FOUND.value());
-
-        return new ResponseEntity<>(errors, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<ErrorResponse>(errors, HttpStatus.NOT_FOUND);
     }
 
 }

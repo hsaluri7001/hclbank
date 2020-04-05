@@ -53,7 +53,6 @@ public class AccountController {
 	}
 	@PostMapping("/getTransactions")
 	public ResponseEntity<List<AccountTransactions>> getTransactions(@RequestBody TransactionBean transactionBean){
-		System.out.println(transactionBean);
 		List<AccountTransactions> accountTransactions= accountService.getAccountTransactions(transactionBean);
 		return new ResponseEntity<List<AccountTransactions>>(accountTransactions,HttpStatus.OK);
 	}

@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bank.entity.Account;
 import com.bank.entity.AccountTransactions;
-import com.bank.exceptionhandler.AccountNotFoundException;
+import com.bank.exceptionhandler.CommonCustomException;
 import com.bank.repository.AccountRepository;
 import com.bank.repository.TransactionRepository;
 
@@ -55,13 +56,13 @@ public class FundTransferService {
 						e.printStackTrace();
 					}
 				} else {
-					throw new AccountNotFoundException("Insufficient funds in you account!");
+					throw new CommonCustomException("Insufficient funds in your account!");
 				}
 			} else {
-				throw new AccountNotFoundException("Account is not active. please contact bank!");
+				throw new CommonCustomException("Account is not active. please contact bank!");
 			}
 		} else {
-			throw new AccountNotFoundException("Account Doesn't exist!");
+			throw new CommonCustomException("Account Doesn't exist!");
 		}
 		return transactionId;
 	}

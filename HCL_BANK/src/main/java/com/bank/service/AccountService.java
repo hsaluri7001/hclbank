@@ -11,7 +11,7 @@ import com.bank.beans.TransactionBean;
 import com.bank.entity.Account;
 import com.bank.entity.AccountTransactions;
 import com.bank.entity.Customer;
-import com.bank.exceptionhandler.AccountNotFoundException;
+import com.bank.exceptionhandler.CommonCustomException;
 import com.bank.repository.AccountRepository;
 import com.bank.repository.CustomerRepository;
 import com.bank.repository.TransactionRepository;
@@ -32,23 +32,23 @@ public class AccountService {
 	@Autowired
 	private TransactionRepository transactionRepository;
 
-	public Customer getAccountDetails(Long accountNumber)throws AccountNotFoundException {
+	public Customer getAccountDetails(Long accountNumber)throws Exception {
 		Account accountEntity = null;
 		Customer customerEntity = null;
 		try {
 			accountEntity = accountRepository.getOne(accountNumber);
 			if(accountEntity==null) {
-				throw new AccountNotFoundException("Account Doesn't exist!");
+				throw new CommonCustomException("Account Doesn't exist!");
 			}
 			 customerEntity=accountEntity.getCustomer();
 		}
 		catch(Exception e) {
-			throw new AccountNotFoundException("Account Doesn't exist! please contact your home branch");
+			throw new CommonCustomException("Account Doesn't exist! please contact your home branch");
 		}
 		return customerEntity;
 	}
 
-	public AccountInfo createAccount(Customer customerEntity) {
+	public AccountInfo createAccount(Customer customerEntity){
 		AccountInfo accountInfo = null;
 		try {
 			if (customerEntity != null) {
@@ -66,7 +66,7 @@ public class AccountService {
 				}
 			}
 		} catch (Exception e) {
-			new AccountNotFoundException("Error in creating account. please try after some time!");
+			new CommonCustomException("Error in creating account. please try after some time!");
 		}
 		return accountInfo;
 	}
