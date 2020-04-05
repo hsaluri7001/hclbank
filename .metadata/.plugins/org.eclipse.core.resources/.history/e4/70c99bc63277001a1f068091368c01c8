@@ -66,7 +66,7 @@ public class AccountService {
 				}
 			}
 		} catch (Exception e) {
-			new AccountNotFoundException("Error in creating account. please try after some time!");
+			e.printStackTrace();
 		}
 		return accountInfo;
 	}
