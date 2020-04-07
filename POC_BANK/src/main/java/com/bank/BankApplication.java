@@ -7,10 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  *
  */
 @SpringBootApplication
-public class HclBankApplication {
+public class BankApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HclBankApplication.class, args);
+		SpringApplication.run(BankApplication.class, args);
 	}
 
 }

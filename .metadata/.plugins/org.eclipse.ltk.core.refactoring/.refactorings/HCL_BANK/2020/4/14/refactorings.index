@@ -1,9 +1,0 @@
-1585899434106	Rename package 'com.example.demo'
-1585900718540	Rename package 'com.hcl.dao'
-1585916540072	Rename package 'com.hcl.repository'
-1585916550469	Move package
-1585916569683	Rename package 'com.hcl'
-1585916921561	Rename package 'com.hcl.service'
-1585932159326	Delete element
-1585991377164	Infer generic type arguments
-1585993237462	Rename package 'com.bank.exception'
